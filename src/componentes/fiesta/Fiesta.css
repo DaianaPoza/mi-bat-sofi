@@ -1,0 +1,218 @@
+@import url("https://fonts.googleapis.com/css2?family=Mea+Culpa&family=Montserrat:wght@300;400;500&display=swap");
+
+.fiesta {
+  --fiesta-ivory: #f1eeeb;
+  --fiesta-purple: #52257a;
+  --fiesta-lilac: #b58bca;
+
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  min-height: clamp(650px, 92svh, 900px);
+  padding: clamp(145px, 20vw, 210px) 20px clamp(210px, 29vw, 315px);
+  box-sizing: border-box;
+  overflow: hidden;
+  background: var(--fiesta-ivory);
+  color: var(--fiesta-purple);
+}
+
+.fiesta::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150' viewBox='0 0 150 150'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.04'/%3E%3C/svg%3E");
+  content: "";
+  opacity: 0.18;
+  pointer-events: none;
+}
+
+.fiesta__content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: min(100%, 620px);
+  text-align: center;
+}
+
+.fiesta__flowers {
+  position: absolute;
+  left: 50%;
+  z-index: 1;
+  display: block;
+  max-width: none;
+  height: auto;
+  transform: translateX(-50%);
+  pointer-events: none;
+  user-select: none;
+}
+
+.fiesta__flowers--top {
+  top: -1px;
+  width: min(135%, 900px);
+  opacity: 0.72;
+}
+
+.fiesta__flowers--bottom {
+  bottom: -1px;
+  width: min(112%, 900px);
+  opacity: 0.9;
+}
+
+.fiesta__loose-flowers {
+  position: absolute;
+  left: 50%;
+  z-index: 1;
+  display: block;
+  width: min(108%, 760px);
+  max-width: none;
+  height: auto;
+  transform: translateX(-50%);
+  pointer-events: none;
+  user-select: none;
+}
+
+.fiesta__loose-flowers--upper {
+  top: clamp(92px, 13vw, 135px);
+  opacity: 0.42;
+}
+
+.fiesta__loose-flowers--lower {
+  top: 55%;
+  opacity: 0.28;
+  transform: translateX(-50%) rotate(180deg) scale(0.82);
+}
+
+
+
+
+.fiesta__icon-circle {
+  display: grid;
+  place-items: center;
+  width: clamp(78px, 20vw, 96px);
+  aspect-ratio: 1;
+  border: 1px solid rgb(255 255 255 / 70%);
+  border-radius: 50%;
+  background: rgb(82 37 122 / 7%);
+  box-shadow: 0 6px 20px rgb(82 37 122 / 8%);
+}
+
+.fiesta__party-icon {
+  width: 67%;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.fiesta__title {
+  margin: clamp(24px, 5vw, 40px) 0 0;
+  font-family: "Mea Culpa", cursive;
+  font-size: clamp(4.5rem, 15vw, 7rem);
+  font-weight: 400;
+  line-height: 0.9;
+}
+
+.fiesta__divider {
+  width: 22px;
+  height: 1px;
+  margin: clamp(22px, 4vw, 30px) 0 clamp(28px, 5vw, 38px);
+  background: var(--fiesta-lilac);
+}
+
+.fiesta__details {
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(1rem, 3.8vw, 1.22rem);
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.fiesta__details p {
+  margin: 0;
+}
+
+.fiesta__details .fiesta__time {
+  margin: 2px 0 12px;
+  font-weight: 500;
+  letter-spacing: 0.035em;
+}
+
+.fiesta__map-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-width: min(250px, 78vw);
+  margin-top: clamp(32px, 6vw, 46px);
+  padding: 13px 28px;
+  border: 1px solid rgb(255 255 255 / 58%);
+  border-radius: 999px;
+  background: linear-gradient(145deg, #c5a4d6, #79508f);
+  box-shadow: 0 6px 18px rgb(66 29 91 / 16%);
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(1rem, 3.7vw, 1.12rem);
+  font-weight: 300;
+  text-decoration: none;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.fiesta__map-button svg {
+  width: 22px;
+  height: 22px;
+  stroke: currentColor;
+  stroke-width: 1.7;
+}
+
+.fiesta__map-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 9px 22px rgb(66 29 91 / 23%);
+}
+
+.fiesta__map-button:focus-visible {
+  outline: 3px solid rgb(82 37 122 / 40%);
+  outline-offset: 5px;
+}
+
+@media (max-width: 390px) {
+  .fiesta {
+    min-height: 680px;
+    padding: 135px 15px 205px;
+  }
+
+  .fiesta__title {
+    font-size: 4.3rem;
+  }
+
+  .fiesta__details {
+    font-size: 0.96rem;
+  }
+
+  .fiesta__map-button {
+    min-width: 230px;
+  }
+
+  .fiesta__loose-flowers {
+  width: 116%;
+}
+
+.fiesta__loose-flowers--upper {
+  top: 105px;
+  opacity: 0.38;
+}
+
+.fiesta__loose-flowers--lower {
+  top: 58%;
+  opacity: 0.24;
+  transform: translateX(-50%) rotate(180deg) scale(0.82);
+}
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fiesta__map-button {
+    transition: none;
+  }
+}

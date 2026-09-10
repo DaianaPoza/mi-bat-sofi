@@ -1,0 +1,161 @@
+@import url("https://fonts.googleapis.com/css2?family=Mea+Culpa&family=Montserrat:wght@300;400;500&display=swap");
+
+.dresscode {
+  --dresscode-background: #cfaee4;
+  --dresscode-purple: #52257a;
+  --dresscode-lilac: #a77bc1;
+
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  min-height: clamp(650px, 88svh, 860px);
+  padding: clamp(155px, 22vw, 225px) 20px clamp(205px, 29vw, 310px);
+  box-sizing: border-box;
+  overflow: hidden;
+  background: var(--dresscode-background);
+  color: var(--dresscode-purple);
+}
+
+.dresscode::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150' viewBox='0 0 150 150'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.04'/%3E%3C/svg%3E");
+  content: "";
+  opacity: 0.14;
+  pointer-events: none;
+}
+
+.dresscode__content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: min(100%, 620px);
+  text-align: center;
+}
+
+.dresscode__icon-circle {
+  display: grid;
+  place-items: center;
+  width: clamp(90px, 23vw, 112px);
+  aspect-ratio: 1;
+  border: 1px solid rgb(255 255 255 / 34%);
+  border-radius: 50%;
+  background: rgb(255 255 255 / 25%);
+  box-shadow: 0 8px 25px rgb(82 37 122 / 9%);
+}
+
+.dresscode__icon {
+  width: 72%;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.dresscode__title {
+  margin: clamp(30px, 6vw, 48px) 0 0;
+  font-family: "Mea Culpa", cursive;
+  font-size: clamp(4.4rem, 15vw, 7rem);
+  font-weight: 400;
+  line-height: 0.88;
+  white-space: nowrap;
+}
+
+.dresscode__divider {
+  width: 24px;
+  height: 1px;
+  margin: clamp(26px, 5vw, 36px) 0 clamp(22px, 4vw, 30px);
+  background: rgb(82 37 122 / 48%);
+}
+
+.dresscode__type {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(1.05rem, 4vw, 1.35rem);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.dresscode__flowers,
+.dresscode__loose-flowers {
+  position: absolute;
+  z-index: 1;
+  display: block;
+  max-width: none;
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+}
+
+.dresscode__flowers {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.dresscode__flowers--top {
+  top: -1px;
+  width: min(138%, 940px);
+  opacity: 0.86;
+  transform: translateX(-50%) rotate(180deg);
+}
+
+.dresscode__flowers--bottom {
+  bottom: -1px;
+  width: min(118%, 900px);
+  opacity: 0.96;
+}
+
+.dresscode__loose-flowers {
+  left: 50%;
+  width: min(112%, 760px);
+}
+
+.dresscode__loose-flowers--upper {
+  top: 22%;
+  opacity: 0.34;
+  transform: translateX(-50%) scale(0.86);
+}
+
+.dresscode__loose-flowers--lower {
+  top: 56%;
+  opacity: 0.27;
+  transform: translateX(-50%) rotate(180deg) scale(0.78);
+}
+
+@media (max-width: 390px) {
+  .dresscode {
+    min-height: 680px;
+    padding: 145px 14px 205px;
+  }
+
+  .dresscode__title {
+    font-size: clamp(4rem, 19vw, 4.7rem);
+  }
+
+  .dresscode__flowers--top {
+    width: 154%;
+  }
+
+  .dresscode__flowers--bottom {
+    width: 132%;
+  }
+
+  .dresscode__loose-flowers {
+    width: 122%;
+  }
+
+  .dresscode__loose-flowers--upper {
+    top: 24%;
+    opacity: 0.3;
+  }
+
+  .dresscode__loose-flowers--lower {
+    top: 58%;
+    opacity: 0.22;
+  }
+}
