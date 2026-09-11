@@ -8,18 +8,36 @@ import Fiesta from "./componentes/fiesta/Fiesta";
 import Dresscode from "./componentes/dresscode/Dresscode";
 import Galeria2 from "./componentes/galeria2/Galeria2";
 import AlbumCompartido from "./componentes/albumcompartido/Albumcompartido";
+import Confirmacion from "./componentes/confirmar/Confirmar";
+import PanelDemo from "./componentes/panel/Panel";
 
 import "./App.css";
 
 function App() {
   const audioRef = useRef(null);
 
+  const params = new URLSearchParams(
+    window.location.search,
+  );
+
+  const showPanel =
+    params.get("panel") === "cliente";
+
   useEffect(() => {
-    const sections = document.querySelectorAll(".reveal-section");
+    // Si estamos viendo el panel, no necesitamos
+    // ejecutar las animaciones de la invitación.
+    if (showPanel) {
+      return undefined;
+    }
+
+    const sections =
+      document.querySelectorAll(".reveal-section");
 
     if (!("IntersectionObserver" in window)) {
       sections.forEach((section) => {
-        section.classList.add("reveal-section--visible");
+        section.classList.add(
+          "reveal-section--visible",
+        );
       });
 
       return undefined;
@@ -29,9 +47,10 @@ function App() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("reveal-section--visible");
+            entry.target.classList.add(
+              "reveal-section--visible",
+            );
 
-            // La animación se ejecuta una sola vez
             observer.unobserve(entry.target);
           }
         });
@@ -49,27 +68,25 @@ function App() {
     return () => {
       observer.disconnect();
     };
-  }, []);
+  }, [showPanel]);
 
+  const handleMusic = async () => {
+    const audio = audioRef.current;
 
+    if (!audio) return false;
 
+    if (audio.paused) {
+      await audio.play();
+      return true;
+    }
 
-const handleMusic = async () => {
-  const audio = audioRef.current;
+    audio.pause();
+    return false;
+  };
 
-  if (!audio) return false;
-
-  if (audio.paused) {
-    await audio.play();
-    return true;
+  if (showPanel) {
+    return <PanelDemo />;
   }
-
-  audio.pause();
-  return false;
-};
-
-
-
 
   return (
     <>
@@ -108,6 +125,10 @@ const handleMusic = async () => {
 
       <div className="reveal-section">
         <AlbumCompartido />
+      </div>
+
+      <div className="reveal-section">
+        <Confirmacion />
       </div>
     </>
   );
