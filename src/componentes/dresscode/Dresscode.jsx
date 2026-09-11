@@ -1,6 +1,7 @@
 import floresSuperiores from "../../assets/flores-ceremonia-superior.png";
 import floresInferiores from "../../assets/flores-hero-inferior.png";
 import floresSueltas from "../../assets/flores-hero-sueltas.png";
+import tituloDressCode from "../../assets/titulo-dress-code.png";
 import "./Dresscode.css";
 
 function DressCodeIcon() {
@@ -40,10 +41,13 @@ function Dresscode() {
         <div className="dresscode__icon-circle">
           <DressCodeIcon />
         </div>
-
-        <h2 className="dresscode__title" id="dresscode-title">
-          Dress Code
-        </h2>
+<h2 className="dresscode__title" id="dresscode-title">
+  <img
+    className="dresscode__title-image"
+    src={tituloDressCode}
+    alt="Dress Code"
+  />
+</h2>
 
         <span className="dresscode__divider" aria-hidden="true" />
 

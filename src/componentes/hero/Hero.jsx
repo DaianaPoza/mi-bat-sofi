@@ -1,10 +1,18 @@
 import { useRef, useState } from "react";
 import floresInferiores from "../../assets/flores-hero-inferior.png";
 import floresSueltas from "../../assets/flores-hero-sueltas.png";
+import tituloMiBat from "../../assets/texto-mibat.png";
+import tituloSofi from "../../assets/texto-sofi.png";
+
+
+
 import "./Hero.css";
 
 function Hero({ onPlay }) {
   const [started, setStarted] = useState(false);
+
+const [isPlaying, setIsPlaying] = useState(false);
+
   const buttonRef = useRef(null);
 
   const handlePlay = async () => {
@@ -27,10 +35,11 @@ function Hero({ onPlay }) {
     }
 
     try {
-      await onPlay?.();
-    } catch (error) {
-      console.error("No se pudo reproducir la música:", error);
-    }
+  const playing = await onPlay?.();
+  setIsPlaying(Boolean(playing));
+} catch (error) {
+  console.error("No se pudo reproducir la música:", error);
+}
   };
 
   return (
@@ -43,11 +52,27 @@ function Hero({ onPlay }) {
       />
 
       <div className="hero__content">
-        <p className="hero__subtitle">Mi Bat</p>
+        
 
-        <h1 className="hero__name" id="hero-name">
-          Sofi
-        </h1>
+<p className="hero__subtitle">
+  <img
+    className="hero__subtitle-image"
+    src={tituloMiBat}
+    alt="Mi Bat"
+  />
+</p>
+
+<h1 className="hero__name" id="hero-name">
+  <img
+    className="hero__name-image"
+    src={tituloSofi}
+    alt="Sofi"
+  />
+</h1>
+
+
+
+
 
         <div
           className="hero__date"
@@ -66,12 +91,21 @@ function Hero({ onPlay }) {
             className="hero__play"
             type="button"
             onClick={handlePlay}
-            aria-label={
-              started ? "Pausar o continuar la música" : "Reproducir música"
-            }
-          >
-            <span className="hero__play-triangle" aria-hidden="true" />
-          </button>
+
+
+          aria-label={isPlaying ? "Pausar música" : "Reproducir música"}
+>
+  {isPlaying ? (
+    <span className="hero__pause-icon" aria-hidden="true">
+      <span />
+      <span />
+    </span>
+  ) : (
+    <span className="hero__play-triangle" aria-hidden="true" />
+  )}
+</button>
+
+
 
           {!started && <span className="hero__play-label">DALE PLAY</span>}
         </div>

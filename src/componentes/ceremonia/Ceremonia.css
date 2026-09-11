@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Mea+Culpa&family=Montserrat:wght@300;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap");
 
 .ceremonia {
   --ceremonia-background: #cfaee4;
@@ -120,12 +120,19 @@
 }
 
 .ceremonia__title {
+  width: 100%;
   margin: clamp(24px, 5vw, 42px) 0 0;
-  font-family: "Mea Culpa", cursive;
-  font-size: clamp(4.2rem, 14vw, 7rem);
-  font-weight: 400;
-  line-height: 0.9;
+  line-height: 0;
+  text-align: center;
+}
 
+.ceremonia__title-image {
+  display: block;
+  width: clamp(230px, 68vw, 430px);
+  max-width: 100%;
+  height: auto;
+  margin-inline: auto;
+  object-fit: contain;
 }
 
 .ceremonia__divider {
@@ -211,9 +218,9 @@
     padding-inline: 15px;
   }
 
-  .ceremonia__title {
-    font-size: 4rem;
-  }
+ .ceremonia__title-image {
+  width: min(68vw, 245px);
+}
 
   .ceremonia__map-button {
     min-width: 230px;

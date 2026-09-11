@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Mea+Culpa&family=Montserrat:wght@300;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap");
 
 .countdown {
   --countdown-ivory: #f1eeeb;
@@ -31,17 +31,24 @@
 
 
 
-
-
-
-
 .countdown__title {
+  width: 100%;
   margin: 0 0 clamp(30px, 6vw, 48px);
-  font-family: "Mea Culpa", cursive;
-  font-size: clamp(3.1rem, 11vw, 5.4rem);
-  font-weight: 400;
-  line-height: 0.9;
+  line-height: 0;
 }
+
+.countdown__title-image {
+  display: block;
+  width: clamp(280px, 76vw, 520px);
+  max-width: 100%;
+  height: auto;
+  margin-inline: auto;
+  object-fit: contain;
+}
+
+
+
+
 
 .countdown__units {
   display: grid;
@@ -126,4 +133,35 @@
   .countdown__label {
     font-size: 0.47rem;
   }
+
+
+@media (max-width: 360px) {
+  .countdown {
+    padding-inline: 12px;
+  }
+
+  .countdown__card {
+    padding-inline: 9px;
+  }
+
+  .countdown__title-image {
+    width: min(84vw, 310px);
+  }
+
+  .countdown__number {
+    font-size: clamp(1.75rem, 9.6vw, 2.2rem);
+  }
+
+  .countdown__unit:not(:last-child)::after {
+    right: -0.12em;
+    font-size: 1.85rem;
+  }
+
+  .countdown__label {
+    font-size: 0.47rem;
+  }
+}
+
+
+
 }

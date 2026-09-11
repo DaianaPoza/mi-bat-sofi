@@ -1,4 +1,5 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
+
 import Hero from "./componentes/hero/Hero";
 import Galeria from "./componentes/galeria1/Galeria1";
 import CuentaRegresiva from "./componentes/cuentaregresiva/Cuentaregresiva";
@@ -6,23 +7,69 @@ import Ceremonia from "./componentes/ceremonia/Ceremonia";
 import Fiesta from "./componentes/fiesta/Fiesta";
 import Dresscode from "./componentes/dresscode/Dresscode";
 import Galeria2 from "./componentes/galeria2/Galeria2";
+import AlbumCompartido from "./componentes/albumcompartido/Albumcompartido";
 
-
+import "./App.css";
 
 function App() {
   const audioRef = useRef(null);
 
-  const handleMusic = async () => {
-    const audio = audioRef.current;
+  useEffect(() => {
+    const sections = document.querySelectorAll(".reveal-section");
 
-    if (!audio) return;
+    if (!("IntersectionObserver" in window)) {
+      sections.forEach((section) => {
+        section.classList.add("reveal-section--visible");
+      });
 
-    if (audio.paused) {
-      await audio.play();
-    } else {
-      audio.pause();
+      return undefined;
     }
-  };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("reveal-section--visible");
+
+            // La animación se ejecuta una sola vez
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: "0px 0px -40px 0px",
+      },
+    );
+
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
+
+
+
+const handleMusic = async () => {
+  const audio = audioRef.current;
+
+  if (!audio) return false;
+
+  if (audio.paused) {
+    await audio.play();
+    return true;
+  }
+
+  audio.pause();
+  return false;
+};
+
+
+
 
   return (
     <>
@@ -35,15 +82,33 @@ function App() {
         loop
       />
 
-      {/* Las próximas secciones de la invitación irán debajo del Hero. */}
+      <div className="reveal-section">
+        <Galeria />
+      </div>
 
-      <Galeria />
-      <CuentaRegresiva />
-      <Ceremonia />
-      <Fiesta />
-      <Dresscode/>
-      <Galeria2 />
+      <div className="reveal-section">
+        <CuentaRegresiva />
+      </div>
 
+      <div className="reveal-section">
+        <Ceremonia />
+      </div>
+
+      <div className="reveal-section">
+        <Fiesta />
+      </div>
+
+      <div className="reveal-section">
+        <Dresscode />
+      </div>
+
+      <div className="reveal-section">
+        <Galeria2 />
+      </div>
+
+      <div className="reveal-section">
+        <AlbumCompartido />
+      </div>
     </>
   );
 }

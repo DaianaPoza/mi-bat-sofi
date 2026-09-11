@@ -2,6 +2,7 @@ import floresSuperiores from "../../assets/flores-ceremonia-superior.png";
 import floresInferiores from "../../assets/flores-ceremonia-inferior.png";
 import "./Fiesta.css";
 import floresSueltas from "../../assets/flores-hero-sueltas.png";
+import tituloFiesta from "../../assets/texto-fiesta.png";
 
 const MAP_URL =
   "https://www.google.com/maps/search/?api=1&query=Punto+Alem+Eventos%2C+Av.+Alem+862%2C+Bah%C3%ADa+Blanca";
@@ -74,9 +75,13 @@ function Fiesta() {
           <PartyIcon />
         </div>
 
-        <h2 className="fiesta__title" id="fiesta-title">
-          Fiesta
-        </h2>
+       <h2 className="fiesta__title" id="fiesta-title">
+  <img
+    className="fiesta__title-image"
+    src={tituloFiesta}
+    alt="Fiesta"
+  />
+</h2>
 
         <span className="fiesta__divider" aria-hidden="true" />
 

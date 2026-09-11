@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import florCuentaRegresiva from "../../assets/flor-cuenta-regresiva.png";
+import tituloCuantoFalta from "../../assets/texto-cuantofalta.png";
 import "./Cuentaregresiva.css";
 
 const EVENT_DATE = new Date("2026-10-10T21:00:00-03:00").getTime();
@@ -40,9 +41,13 @@ function CuentaRegresiva() {
   return (
     <section className="countdown" aria-labelledby="countdown-title">
       <div className="countdown__card">
-        <h2 className="countdown__title" id="countdown-title">
-          ¿Cuánto falta?
-        </h2>
+       <h2 className="countdown__title" id="countdown-title">
+  <img
+    className="countdown__title-image"
+    src={tituloCuantoFalta}
+    alt="¿Cuánto falta?"
+  />
+</h2>
 
         <div className="countdown__units" aria-hidden="true">
           {units.map((unit) => (

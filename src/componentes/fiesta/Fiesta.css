@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Mea+Culpa&family=Montserrat:wght@300;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap");
 
 .fiesta {
   --fiesta-ivory: #f1eeeb;
@@ -109,11 +109,20 @@
 }
 
 .fiesta__title {
+  display: flex;
+  justify-content: center;
+  width: 100%;
   margin: clamp(24px, 5vw, 40px) 0 0;
-  font-family: "Mea Culpa", cursive;
-  font-size: clamp(4.5rem, 15vw, 7rem);
-  font-weight: 400;
-  line-height: 0.9;
+  line-height: 0;
+}
+
+.fiesta__title-image {
+  display: block;
+  width: clamp(230px, 68vw, 430px);
+  max-width: 100%;
+  height: auto;
+  margin-inline: auto;
+  object-fit: contain;
 }
 
 .fiesta__divider {
@@ -183,9 +192,9 @@
     padding: 135px 15px 205px;
   }
 
-  .fiesta__title {
-    font-size: 4.3rem;
-  }
+ .fiesta__title-image {
+  width: min(68vw, 150px);
+}
 
   .fiesta__details {
     font-size: 0.96rem;

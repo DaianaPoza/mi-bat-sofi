@@ -1,29 +1,15 @@
 import florCeremonia from "../../assets/flor-ceremonia.png";
 import floresSuperiores from "../../assets/flores-ceremonia-superior.png";
 import floresInferiores from "../../assets/flores-ceremonia-inferior.png";
+import tituloCeremonia from "../../assets/texto-ceremonia.png";
+
+
 import "./Ceremonia.css";
 
 const MAP_URL =
-  "https://www.google.com/maps/search/?api=1&query=Lavalle+54%2C+Bah%C3%ADa+Blanca";
+    "https://www.google.com/maps/search/?api=1&query=Espa%C3%B1a+42%2C+Bah%C3%ADa+Blanca";
 
-function ChurchIcon() {
-  return (
-    <svg
-      className="ceremonia__church-icon"
-      viewBox="0 0 96 96"
-      fill="none"
-      aria-hidden="true"
-    >
-      <path d="M16 78h64M23 78V43h14v35M59 78V43h14v35" />
 
-      <path d="M37 78V33l11-10 11 10v45M43 78V59c0-4 2-7 5-7s5 3 5 7v19" />
-
-      <path d="M48 23V12m0 0h7m-7 0V7M44 40h8M48 36v8" />
-
-      <path d="M19 43h18M59 43h18" />
-    </svg>
-  );
-}
 
 function LocationIcon() {
   return (
@@ -52,17 +38,17 @@ function Ceremonia() {
           src={florCeremonia}
           alt=""
         />
-
-        <div className="ceremonia__icon-circle">
-          <ChurchIcon />
-        </div>
       </div>
 
       {/* Contenido principal */}
       <div className="ceremonia__content">
-        <h2 className="ceremonia__title" id="ceremonia-title">
-          Ceremonia
-        </h2>
+       <h2 className="ceremonia__title" id="ceremonia-title">
+  <img
+    className="ceremonia__title-image"
+    src={tituloCeremonia}
+    alt="Ceremonia"
+  />
+</h2>
 
         <span className="ceremonia__divider" aria-hidden="true" />
 
@@ -77,7 +63,7 @@ function Ceremonia() {
         </div>
 
         <p className="ceremonia__address">
-          Dirección: Lavalle 54, Bahía Blanca.
+          Dirección: España 42, Bahía Blanca
         </p>
 
         <a
