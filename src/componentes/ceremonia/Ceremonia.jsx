@@ -11,6 +11,19 @@ const MAP_URL =
 
 
 
+function getTipoInvitacion() {
+  const params = new URLSearchParams(
+    window.location.search,
+  );
+
+  return params.get("tipo") === "fiesta"
+    ? "fiesta"
+    : "completa";
+}
+
+
+
+
 function LocationIcon() {
   return (
     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -21,6 +34,17 @@ function LocationIcon() {
 }
 
 function Ceremonia() {
+
+const tipoInvitacion = getTipoInvitacion();
+
+  const mostrarViernes =
+    tipoInvitacion === "completa";
+
+
+
+
+
+
   return (
     <section className="ceremonia" aria-labelledby="ceremonia-title">
       {/* Flores ubicadas en el margen superior */}
@@ -52,10 +76,22 @@ function Ceremonia() {
 
         <span className="ceremonia__divider" aria-hidden="true" />
 
-        <div className="ceremonia__event">
-          <h3>KABALAT SHABAT</h3>
-          <p>viernes 9 de octubre, 19 horas</p>
-        </div>
+
+
+
+
+
+       {mostrarViernes && (
+  <div className="ceremonia__event">
+    <h3>KABALAT SHABAT</h3>
+    <p>Viernes 9 de octubre, 19 horas</p>
+  </div>
+)}
+
+
+
+
+
 
         <div className="ceremonia__event">
           <h3>LECTURA DE LA TORÁ</h3>
