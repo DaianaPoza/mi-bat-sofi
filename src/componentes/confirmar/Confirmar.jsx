@@ -259,8 +259,7 @@ function Confirmacion() {
         </h2>
 
         <p className="confirmation__intro">
-          Por favor, completá un formulario por
-          familia o grupo invitado
+          Completar en forma individual por cada invitado
         </p>
 
         <form
