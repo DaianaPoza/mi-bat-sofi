@@ -258,10 +258,10 @@ function Confirmacion() {
           />
         </h2>
 
-        <p className="confirmation__intro">
+    {/*   <p className="confirmation__intro">
           Completar en forma individual por cada invitado
         </p>
-
+ */}
         <form
           className="confirmation__form"
           onSubmit={handleSubmit}
